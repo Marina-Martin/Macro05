@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F1DB6622BF3DD7C002F5679 /* RadioCanada.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DB6602BF3DD7C002F5679 /* RadioCanada.ttf */; };
+		9F1DB6632BF3DD7C002F5679 /* RadioCanada-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DB6612BF3DD7C002F5679 /* RadioCanada-Italic.ttf */; };
 		9FACAAD72BF2B41800BEDEC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FACAAD62BF2B41800BEDEC0 /* AppDelegate.swift */; };
 		9FACAAD92BF2B41800BEDEC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FACAAD82BF2B41800BEDEC0 /* SceneDelegate.swift */; };
 		9FACAADB2BF2B41800BEDEC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FACAADA2BF2B41800BEDEC0 /* ViewController.swift */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F1DB6602BF3DD7C002F5679 /* RadioCanada.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = RadioCanada.ttf; sourceTree = "<group>"; };
+		9F1DB6612BF3DD7C002F5679 /* RadioCanada-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RadioCanada-Italic.ttf"; sourceTree = "<group>"; };
 		9FACAAD32BF2B41800BEDEC0 /* Treat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Treat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FACAAD62BF2B41800BEDEC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FACAAD82BF2B41800BEDEC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +39,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F1DB6572BF3D899002F5679 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9F1DB6612BF3DD7C002F5679 /* RadioCanada-Italic.ttf */,
+				9F1DB6602BF3DD7C002F5679 /* RadioCanada.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		9FACAACA2BF2B41800BEDEC0 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +71,7 @@
 				9FACAAD82BF2B41800BEDEC0 /* SceneDelegate.swift */,
 				9FACAADA2BF2B41800BEDEC0 /* ViewController.swift */,
 				9FACAADF2BF2B41900BEDEC0 /* Assets.xcassets */,
+				9F1DB6572BF3D899002F5679 /* fonts */,
 				9FACAAE12BF2B41900BEDEC0 /* LaunchScreen.storyboard */,
 				9FACAAE42BF2B41900BEDEC0 /* Info.plist */,
 			);
@@ -122,7 +136,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F1DB6632BF3DD7C002F5679 /* RadioCanada-Italic.ttf in Resources */,
 				9FACAAE02BF2B41900BEDEC0 /* Assets.xcassets in Resources */,
+				9F1DB6622BF3DD7C002F5679 /* RadioCanada.ttf in Resources */,
 				9FACAAE32BF2B41900BEDEC0 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
