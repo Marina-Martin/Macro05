@@ -9,6 +9,23 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: variables
+    
+    private let activity: [String] = [
+        "1", "2", "3", "4"
+    ]
+    
+    // MARK: Components
+//    private let tableView: UITableView = {
+//        let tableView = UITableView()
+//        
+//        tableView.backgroundColor = UIColor(.appBlack)
+//        tableView.register(UITableViewCell.self, forHeaderFooterViewReuseIdentifier: "Cell")
+//        
+//        return tableView
+//    }()
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,9 +45,12 @@ class ViewController: UIViewController {
         //setConstraints()
     }
 
+    // MARK: - Setup
     func setConstraints(){
         //setTitleLabel()
     }
+    
+    
     
     func setTitleLabel() {
 //        view.addSubview(titleLabel)
