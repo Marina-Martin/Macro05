@@ -10,6 +10,7 @@
 		9F1DB6622BF3DD7C002F5679 /* RadioCanada.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DB6602BF3DD7C002F5679 /* RadioCanada.ttf */; };
 		9F1DB6632BF3DD7C002F5679 /* RadioCanada-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DB6612BF3DD7C002F5679 /* RadioCanada-Italic.ttf */; };
 		9F1DB6692BF4035A002F5679 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DB6672BF4035A002F5679 /* DataModel.xcdatamodeld */; };
+		9F1DB66C2BF4051C002F5679 /* Activity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DB66A2BF4051C002F5679 /* Activity+CoreDataClass.swift */; };
 		9FACAAD72BF2B41800BEDEC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FACAAD62BF2B41800BEDEC0 /* AppDelegate.swift */; };
 		9FACAAD92BF2B41800BEDEC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FACAAD82BF2B41800BEDEC0 /* SceneDelegate.swift */; };
 		9FACAADB2BF2B41800BEDEC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FACAADA2BF2B41800BEDEC0 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 		9F1DB6602BF3DD7C002F5679 /* RadioCanada.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = RadioCanada.ttf; sourceTree = "<group>"; };
 		9F1DB6612BF3DD7C002F5679 /* RadioCanada-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RadioCanada-Italic.ttf"; sourceTree = "<group>"; };
 		9F1DB6682BF4035A002F5679 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		9F1DB66A2BF4051C002F5679 /* Activity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Activity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9FACAAD32BF2B41800BEDEC0 /* Treat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Treat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FACAAD62BF2B41800BEDEC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FACAAD82BF2B41800BEDEC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +52,15 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		9F1DB66F2BF4053E002F5679 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9F1DB6672BF4035A002F5679 /* DataModel.xcdatamodeld */,
+				9F1DB66A2BF4051C002F5679 /* Activity+CoreDataClass.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		9FACAACA2BF2B41800BEDEC0 = {
 			isa = PBXGroup;
 			children = (
@@ -69,7 +80,7 @@
 		9FACAAD52BF2B41800BEDEC0 /* Treat */ = {
 			isa = PBXGroup;
 			children = (
-				9F1DB6672BF4035A002F5679 /* DataModel.xcdatamodeld */,
+				9F1DB66F2BF4053E002F5679 /* Models */,
 				9FACAAD62BF2B41800BEDEC0 /* AppDelegate.swift */,
 				9FACAAD82BF2B41800BEDEC0 /* SceneDelegate.swift */,
 				9FACAADA2BF2B41800BEDEC0 /* ViewController.swift */,
@@ -154,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FACAADB2BF2B41800BEDEC0 /* ViewController.swift in Sources */,
+				9F1DB66C2BF4051C002F5679 /* Activity+CoreDataClass.swift in Sources */,
 				9F1DB6692BF4035A002F5679 /* DataModel.xcdatamodeld in Sources */,
 				9FACAAD72BF2B41800BEDEC0 /* AppDelegate.swift in Sources */,
 				9FACAAD92BF2B41800BEDEC0 /* SceneDelegate.swift in Sources */,
@@ -387,8 +399,7 @@
 				9F1DB6682BF4035A002F5679 /* DataModel.xcdatamodel */,
 			);
 			currentVersion = 9F1DB6682BF4035A002F5679 /* DataModel.xcdatamodel */;
-			name = DataModel.xcdatamodeld;
-			path = /Users/marinam/Git/Challenges/Macro05/Treat/Treat/DataModel.xcdatamodeld;
+			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

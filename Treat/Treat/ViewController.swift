@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
     
     // MARK: variables
     
-    private let activity: [String] = [
-        "1", "2", "3", "4"
-    ]
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    private var activities: [Activity]?
     
     // MARK: Components
 //    private let tableView: UITableView = {
@@ -28,7 +29,7 @@ class ViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         view.backgroundColor = UIColor(named: "AppBlack")
         
         navigationItem.title = "Suas Atividades"
@@ -43,6 +44,50 @@ class ViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .always
         
         //setConstraints()
+    }
+    
+    // MARK: - CoreData
+    
+    func fetchActivity(){
+        do{
+            self.activities = try context.fetch(Activity.fetchRequest())
+            
+            DispatchQueue.main.async{
+                //atualizar  collection
+            }
+        }catch{
+            
+        }
+    }
+    
+    func addActivity(){
+        let newActivity = Activity(context: self.context)
+        
+        //newActivity.category =
+        //etc...
+        
+        do{
+            try self.context.save()
+        }catch{
+            print("Error in data creation")
+        }
+        
+        self.fetchActivity()
+    }
+    
+    func removeActivity(){
+        //let ActivityToDelete = item[]
+        //onde está
+        
+        //self.context.delete(activityToDelete)
+        
+        do{
+            try self.context.save()
+        }catch{
+            print("Error in data deletion")
+        }
+        
+        self.fetchActivity()
     }
 
     // MARK: - Setup
