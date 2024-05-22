@@ -12,14 +12,18 @@
 		9F1DB6632BF3DD7C002F5679 /* RadioCanada-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DB6612BF3DD7C002F5679 /* RadioCanada-Italic.ttf */; };
 		9F1DB6692BF4035A002F5679 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DB6672BF4035A002F5679 /* DataModel.xcdatamodeld */; };
 		9F1DB66C2BF4051C002F5679 /* Activity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DB66A2BF4051C002F5679 /* Activity+CoreDataClass.swift */; };
+		9F4469BA2BFD2A73008981D0 /* ActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4469B92BFD2A73008981D0 /* ActivitiesView.swift */; };
 		9FACAAD72BF2B41800BEDEC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FACAAD62BF2B41800BEDEC0 /* AppDelegate.swift */; };
 		9FACAAD92BF2B41800BEDEC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FACAAD82BF2B41800BEDEC0 /* SceneDelegate.swift */; };
 		9FACAADB2BF2B41800BEDEC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FACAADA2BF2B41800BEDEC0 /* ViewController.swift */; };
 		9FACAAE02BF2B41900BEDEC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FACAADF2BF2B41900BEDEC0 /* Assets.xcassets */; };
 		9FACAAE32BF2B41900BEDEC0 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 9FACAAE22BF2B41900BEDEC0 /* Base */; };
+		9FB450CC2BFE5A07001FC229 /* ActivityButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB450CB2BFE5A07001FC229 /* ActivityButtonView.swift */; };
 		9FC379452BF67A3F000DECD3 /* CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC379442BF67A3F000DECD3 /* CollectionViewDelegate.swift */; };
 		9FC379472BF67E13000DECD3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC379462BF67E13000DECD3 /* CollectionViewCell.swift */; };
 		9FC379492BF69234000DECD3 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC379482BF69234000DECD3 /* CoreData.swift */; };
+		9FC3794C2BF6950D000DECD3 /* AddSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC3794B2BF6950D000DECD3 /* AddSheetView.swift */; };
+		9FC3794E2BF6A76F000DECD3 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC3794D2BF6A76F000DECD3 /* Enum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,7 @@
 		9F1DB6612BF3DD7C002F5679 /* RadioCanada-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RadioCanada-Italic.ttf"; sourceTree = "<group>"; };
 		9F1DB6682BF4035A002F5679 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		9F1DB66A2BF4051C002F5679 /* Activity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Activity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9F4469B92BFD2A73008981D0 /* ActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesView.swift; sourceTree = "<group>"; };
 		9FACAAD32BF2B41800BEDEC0 /* Treat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Treat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FACAAD62BF2B41800BEDEC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FACAAD82BF2B41800BEDEC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,9 +40,12 @@
 		9FACAADF2BF2B41900BEDEC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FACAAE22BF2B41900BEDEC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9FACAAE42BF2B41900BEDEC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FB450CB2BFE5A07001FC229 /* ActivityButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityButtonView.swift; sourceTree = "<group>"; };
 		9FC379442BF67A3F000DECD3 /* CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegate.swift; sourceTree = "<group>"; };
 		9FC379462BF67E13000DECD3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		9FC379482BF69234000DECD3 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		9FC3794B2BF6950D000DECD3 /* AddSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSheetView.swift; sourceTree = "<group>"; };
+		9FC3794D2BF6A76F000DECD3 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,8 @@
 			children = (
 				9FACAADA2BF2B41800BEDEC0 /* ViewController.swift */,
 				9FC379462BF67E13000DECD3 /* CollectionViewCell.swift */,
+				9FE190332BF7C5A00054B556 /* Component */,
+				9FC3794A2BF694F2000DECD3 /* Sheet */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -116,6 +126,7 @@
 		9FACAAD52BF2B41800BEDEC0 /* Treat */ = {
 			isa = PBXGroup;
 			children = (
+				9FC3794D2BF6A76F000DECD3 /* Enum.swift */,
 				9F1C57222BF5591E00222AF8 /* DataSource */,
 				9F1C571F2BF5521000222AF8 /* Delegates */,
 				9F1C57172BF528F800222AF8 /* Views */,
@@ -126,6 +137,23 @@
 				9FACAAE42BF2B41900BEDEC0 /* Info.plist */,
 			);
 			path = Treat;
+			sourceTree = "<group>";
+		};
+		9FC3794A2BF694F2000DECD3 /* Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				9FC3794B2BF6950D000DECD3 /* AddSheetView.swift */,
+			);
+			path = Sheet;
+			sourceTree = "<group>";
+		};
+		9FE190332BF7C5A00054B556 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				9F4469B92BFD2A73008981D0 /* ActivitiesView.swift */,
+				9FB450CB2BFE5A07001FC229 /* ActivityButtonView.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,9 +232,13 @@
 				9FACAADB2BF2B41800BEDEC0 /* ViewController.swift in Sources */,
 				9F1DB66C2BF4051C002F5679 /* Activity+CoreDataClass.swift in Sources */,
 				9F1DB6692BF4035A002F5679 /* DataModel.xcdatamodeld in Sources */,
+				9FC3794E2BF6A76F000DECD3 /* Enum.swift in Sources */,
+				9F4469BA2BFD2A73008981D0 /* ActivitiesView.swift in Sources */,
 				9FC379492BF69234000DECD3 /* CoreData.swift in Sources */,
 				9FC379452BF67A3F000DECD3 /* CollectionViewDelegate.swift in Sources */,
+				9FC3794C2BF6950D000DECD3 /* AddSheetView.swift in Sources */,
 				9FACAAD72BF2B41800BEDEC0 /* AppDelegate.swift in Sources */,
+				9FB450CC2BFE5A07001FC229 /* ActivityButtonView.swift in Sources */,
 				9F1C57242BF5593000222AF8 /* ActivityCollectionDataSource.swift in Sources */,
 				9FACAAD92BF2B41800BEDEC0 /* SceneDelegate.swift in Sources */,
 			);

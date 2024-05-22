@@ -30,10 +30,6 @@ class ActivityCollectionDataSource: NSObject, UICollectionViewDataSource {
         
         cell.configData(title: activities[indexPath.row], description: activities[indexPath.row])
         
-        //Falta chamar a view aqui e passar as variáveis
-        //let activity = self.activities[indexPath.row]
-        //activity.configure(with: title)
-        
         return cell
     }
 }

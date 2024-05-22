@@ -44,6 +44,7 @@ class CollectionViewCell: UICollectionViewCell {
         description.text = "Uma breve descrição sobre como vou jogar bastante bola lol"
         description.numberOfLines = 2
         description.textColor = .secondaryLabel
+        description.textColor = UIColor(named: "AppDarkGray")
         description.font = UIFont(name: "RadioCanada-Regular_Medium", size: 14)
         
         description.translatesAutoresizingMaskIntoConstraints = false
@@ -56,7 +57,7 @@ class CollectionViewCell: UICollectionViewCell {
         
         date.text = "22/02/2023"
         date.numberOfLines = 2
-        date.textColor = .secondaryLabel
+        date.textColor = UIColor(named: "AppDarkGray")
         date.font = UIFont(name: "RadioCanada-Regular_Bold", size: 16)
         
         date.translatesAutoresizingMaskIntoConstraints = false
@@ -76,15 +77,24 @@ class CollectionViewCell: UICollectionViewCell {
         return image
     }()
     
+    func configData(title: String, description: String) {
+        self.activityLabel.text = title
+        self.descriptionLabel.text = description
+        
+        //MARK: FALTA Adicionar atributos
+        
+        setConstraints()
+    }
+    
     //MARK: Setup
     
-    public func configure(with title: String){
-        
-        //MARK: Adicionar outros atributos
-        
-        self.activityLabel.text = title
-        self.setConstraints()
-    }
+//    public func configure(with type: ActivityType){
+//        
+//        //MARK: FALTA Adicionar atributos
+//        
+//        self.background.backgroundColor = UIColor(named: getDarkColor(activity: type))
+//        self.setConstraints()
+//    }
     
     // MARK: - Setup
     
@@ -94,7 +104,7 @@ class CollectionViewCell: UICollectionViewCell {
             background.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
             background.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             background.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            background.bottomAnchor.constraint(equalTo: self.background.topAnchor, constant: 121)
+            background.bottomAnchor.constraint(equalTo: background.topAnchor, constant: 121)
         ])
 
         background.addSubview(symbolImage)
@@ -137,14 +147,5 @@ class CollectionViewCell: UICollectionViewCell {
         self.dateLabel.text = nil
         
         //o SF não tá como nil
-    }
-    
-    //MARK: Config
-    
-    func configData(title: String, description: String) {
-        self.activityLabel.text = title
-        self.descriptionLabel.text = description
-        
-        setConstraints()
     }
 }

@@ -40,11 +40,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        overrideUserInterfaceStyle = .dark
+        
         view.backgroundColor = UIColor(named: "AppBlack")
         
         setNavigationBar()
-                
+        
         collectionViewDataSource = ActivityCollectionDataSource(activities: activitiesTest, title: activitiesTest)
         
         setConstraints()
@@ -61,7 +62,7 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "AppWhite") ?? .white, NSAttributedString.Key.font: UIFont(name: "RadioCanada-Regular_bold", size: 32)!]
         
         navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(image: (UIImage(systemName: "plus.circle.fill")), style: .plain, target: nil, action: nil),
+            UIBarButtonItem(image: (UIImage(systemName: "plus.circle.fill")), style: .plain, target: self, action: #selector(addButtonTapped)),
             UIBarButtonItem(image: (UIImage(systemName: "line.3.horizontal.decrease.circle")), style: .plain, target: nil, action: nil),
         ]
         
@@ -77,6 +78,13 @@ class ViewController: UIViewController {
             colectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
             colectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
+    }
+    
+    @objc private func addButtonTapped(){
+        let vc = AddSheetView()
+        let sheetViewController = UINavigationController(rootViewController: vc)
+        
+        present(sheetViewController, animated: true, completion: nil)
     }
 }
 
