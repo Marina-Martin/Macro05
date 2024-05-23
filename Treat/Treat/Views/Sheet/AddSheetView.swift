@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import CoreData
 
 class AddSheetView: UIViewController {
+    
+    // MARK: Variables
     
     // MARK: Components
     
@@ -152,10 +155,12 @@ class AddSheetView: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "AppWhite") ?? .white, NSAttributedString.Key.font: UIFont(name: "RadioCanada-Regular_bold", size: 18)!]
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(ViewDismiss))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Adicionar", style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Adicionar", style: .plain, target: self, action: #selector(CreateActivity))
         
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
+    
+    //MARK: Constraints
     
     func setConstraints(){
         view.addSubview(nameLabel)
@@ -237,7 +242,22 @@ class AddSheetView: UIViewController {
     
     @objc func ViewDismiss(){
         navigationController?.dismiss(animated: true)
-        //navigationcontroller.dismiss
+    }
+    
+    @objc func CreateActivity(){
+//        //
+//        let newActivity = Activity(context: self.context)
+//        
+//        //newActivity.category =
+//        //etc...
+//        
+//        do{
+//            try self.context.save()
+//        }catch{
+//            print("Error in data creation")
+//        }
+//        
+//        self.fetchActivity()
     }
 }
 

@@ -8,14 +8,10 @@
 import UIKit
 
 class ActivityCollectionDataSource: NSObject, UICollectionViewDataSource {
-    //private var activities: [Activity]
-    private var activities: [String]
-    private var title: [String]
-    //MARK: missing other activity data
+    var activities: [Activity]
     
-    init(activities: [String], title: [String]) {
+    init(activities: [Activity]) {
         self.activities = activities
-        self.title = title
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -28,8 +24,10 @@ class ActivityCollectionDataSource: NSObject, UICollectionViewDataSource {
             fatalError("Failed to dequeue")
         }
         
-        cell.configData(title: activities[indexPath.row], description: activities[indexPath.row])
+        let activity = self.activities[indexPath.row]
         
+        cell.configData(title: activity.name ?? "", description: activity.desc ?? "", date: activity.createdAt ?? "", type: getType(activity: activity.type ?? "others"))
+                
         return cell
     }
 }

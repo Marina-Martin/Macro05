@@ -22,18 +22,18 @@ class ViewController: UIViewController {
     
     // MARK: Components
     
-    private let colectionView: UICollectionView = {
+    private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         
-        let colectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
-        colectionView.backgroundColor = .clear
+        collectionView.backgroundColor = .clear
         
-        colectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
-        colectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        return colectionView
+        return collectionView
     }()
     
     // MARK: - Lifecycle
@@ -46,12 +46,14 @@ class ViewController: UIViewController {
         
         setNavigationBar()
         
-        collectionViewDataSource = ActivityCollectionDataSource(activities: activitiesTest, title: activitiesTest)
+        fetchActivities()
+        // MARK: sla, talvez dê problema
+        collectionViewDataSource = ActivityCollectionDataSource(activities: activities ?? [])
         
         setConstraints()
         
-        colectionView.delegate = collectionViewDelegate
-        colectionView.dataSource = collectionViewDataSource
+        collectionView.delegate = collectionViewDelegate
+        collectionView.dataSource = collectionViewDataSource
     }
     
     // MARK: - Setup
@@ -71,12 +73,12 @@ class ViewController: UIViewController {
     }
     
     func setConstraints(){
-        view.addSubview(colectionView)
+        view.addSubview(collectionView)
         NSLayoutConstraint.activate([
-            colectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            colectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-            colectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
-            colectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
+            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+            collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
     }
     
@@ -85,6 +87,18 @@ class ViewController: UIViewController {
         let sheetViewController = UINavigationController(rootViewController: vc)
         
         present(sheetViewController, animated: true, completion: nil)
+    }
+    
+    func fetchActivities(){
+        do{
+            self.activities = try context.fetch(Activity.fetchRequest())
+            
+            DispatchQueue.main.async{
+                self.collectionView.reloadData()
+            }
+        }catch{
+            print("Error while fetching data")
+        }
     }
 }
 

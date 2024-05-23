@@ -9,17 +9,6 @@ import Foundation
 
 // MARK: - CoreData
 //
-//func fetchActivity(){
-//    do{
-//        self.activities = try context.fetch(Activity.fetchRequest())
-//        
-//        DispatchQueue.main.async{
-//            //atualizar  collection
-//        }
-//    }catch{
-//        
-//    }
-//}
 //
 //func addActivity(){
 //    let newActivity = Activity(context: self.context)

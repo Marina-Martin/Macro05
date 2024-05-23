@@ -54,7 +54,7 @@ class ActivityButtonView: UIButton {
     // MARK: Lifecycle
     
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame: .zero)
         
         //configData()
     }
@@ -65,11 +65,10 @@ class ActivityButtonView: UIButton {
         self.type = type
         
         self.addTarget(self, action: #selector(ChangeColor), for: .touchUpInside)
+        self.isUserInteractionEnabled = true
         
         self.nameLabel.text = getName(activity: type)
         self.background.backgroundColor = UIColor(named: isPressed ? getDarkColor(activity: type) : getLightColor(activity: type))
-        
-        self.isUserInteractionEnabled = true
         
         symbolSetup(type: type)
         
