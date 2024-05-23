@@ -5,6 +5,6 @@
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="endsAt" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String" customClassName="ActivityType"/>
     </entity>
 </model>

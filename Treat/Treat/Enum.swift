@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ActivityType{
+public enum ActivityType{
     case show
     case cafe
     case galery
@@ -16,6 +16,27 @@ enum ActivityType{
     case restaurant
     case park
     case others
+}
+
+func getType (activity: String) -> ActivityType {
+    switch activity{
+    case "show":
+        return .show
+    case "cafe":
+        return .cafe
+    case "galery":
+        return .galery
+    case "play":
+        return .play
+    case "cinema":
+        return .cinema
+    case "restaurant":
+        return .restaurant
+    case "park":
+        return .park
+    default:
+        return .others
+    }
 }
 
 func getName (activity: ActivityType) -> String {

@@ -77,24 +77,23 @@ class CollectionViewCell: UICollectionViewCell {
         return image
     }()
     
-    func configData(title: String, description: String) {
+    func configData(title: String, description: String, date: String, type: ActivityType) {
         self.activityLabel.text = title
         self.descriptionLabel.text = description
+        self.dateLabel.text = date
+        self.background.backgroundColor = UIColor(named: getLightColor(activity: type))
         
-        //MARK: FALTA Adicionar atributos
-        
+        symbolSetup(type: type)
+                
         setConstraints()
     }
     
-    //MARK: Setup
-    
-//    public func configure(with type: ActivityType){
-//        
-//        //MARK: FALTA Adicionar atributos
-//        
-//        self.background.backgroundColor = UIColor(named: getDarkColor(activity: type))
-//        self.setConstraints()
-//    }
+    func symbolSetup(type: ActivityType){
+        var config = UIImage.SymbolConfiguration(hierarchicalColor: UIColor(named: getDarkColor(activity: type)) ?? .black)
+        config = config.applying(UIImage.SymbolConfiguration(font: .systemFont(ofSize: 65)))
+        let symbol = UIImage(systemName: getSymbol(activity: type), withConfiguration: config)
+        self.symbolImage.image = symbol
+    }
     
     // MARK: - Setup
     
