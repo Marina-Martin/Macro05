@@ -20,7 +20,6 @@
 		9FB450CC2BFE5A07001FC229 /* ActivityButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB450CB2BFE5A07001FC229 /* ActivityButtonView.swift */; };
 		9FC379452BF67A3F000DECD3 /* CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC379442BF67A3F000DECD3 /* CollectionViewDelegate.swift */; };
 		9FC379472BF67E13000DECD3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC379462BF67E13000DECD3 /* CollectionViewCell.swift */; };
-		9FC379492BF69234000DECD3 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC379482BF69234000DECD3 /* CoreData.swift */; };
 		9FC3794C2BF6950D000DECD3 /* AddSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC3794B2BF6950D000DECD3 /* AddSheetView.swift */; };
 		9FC3794E2BF6A76F000DECD3 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC3794D2BF6A76F000DECD3 /* Enum.swift */; };
 /* End PBXBuildFile section */
@@ -41,7 +40,6 @@
 		9FB450CB2BFE5A07001FC229 /* ActivityButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityButtonView.swift; sourceTree = "<group>"; };
 		9FC379442BF67A3F000DECD3 /* CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegate.swift; sourceTree = "<group>"; };
 		9FC379462BF67E13000DECD3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		9FC379482BF69234000DECD3 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		9FC3794B2BF6950D000DECD3 /* AddSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSheetView.swift; sourceTree = "<group>"; };
 		9FC3794D2BF6A76F000DECD3 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,7 +103,6 @@
 		9FACAACA2BF2B41800BEDEC0 = {
 			isa = PBXGroup;
 			children = (
-				9FC379482BF69234000DECD3 /* CoreData.swift */,
 				9FACAAD52BF2B41800BEDEC0 /* Treat */,
 				9FACAAD42BF2B41800BEDEC0 /* Products */,
 			);
@@ -229,7 +226,6 @@
 				9FACAADB2BF2B41800BEDEC0 /* ViewController.swift in Sources */,
 				9FC3794E2BF6A76F000DECD3 /* Enum.swift in Sources */,
 				9F4469BA2BFD2A73008981D0 /* ActivitiesView.swift in Sources */,
-				9FC379492BF69234000DECD3 /* CoreData.swift in Sources */,
 				9FC379452BF67A3F000DECD3 /* CollectionViewDelegate.swift in Sources */,
 				9FC3794C2BF6950D000DECD3 /* AddSheetView.swift in Sources */,
 				9FACAAD72BF2B41800BEDEC0 /* AppDelegate.swift in Sources */,

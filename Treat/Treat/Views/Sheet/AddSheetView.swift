@@ -12,6 +12,12 @@ class AddSheetView: UIViewController {
     
     // MARK: Variables
     
+    var vc = ViewController()
+    
+    var collectionViewDataSource: ActivityCollectionDataSource?
+    var activities: [Activity]?
+    var collectionView: UICollectionView?
+    
     // MARK: Components
     
     let nameLabel: UILabel = {
@@ -138,6 +144,7 @@ class AddSheetView: UIViewController {
     // MARK: Lifecycle
     
     override func viewDidLoad(){
+        
         super.viewDidLoad()
         overrideUserInterfaceStyle = .dark
         
@@ -240,24 +247,51 @@ class AddSheetView: UIViewController {
         ])
     }
     
+    // MARK: Funcs
+    
     @objc func ViewDismiss(){
         navigationController?.dismiss(animated: true)
     }
     
     @objc func CreateActivity(){
-//        //
-//        let newActivity = Activity(context: self.context)
-//        
-//        //newActivity.category =
-//        //etc...
-//        
-//        do{
-//            try self.context.save()
-//        }catch{
-//            print("Error in data creation")
-//        }
-//        
-//        self.fetchActivity()
+        let context = vc.context
+        let newActivity = Activity(context: context)
+        
+        newActivity.name = nameField.text
+        newActivity.desc = descField.text
+        newActivity.createdAt = "23/05/2023"
+        //falta pegar o dia do createdAt
+        //newActivity.endsAt = datePicker.date
+        newActivity.type = "show"
+        newActivity.endsAt = "23/05/2023"
+        
+        do{
+            try context.save()
+        }catch{
+            print("Error in data creation")
+        }
+
+        //nao funciona - marca da ajuda do Bonito no código
+        //vc.fetchActivities()
+        
+        //Aqui seria chamado no WillAppear da sua view, porem nao tem com a sheet - Bonito
+        updateDataSourceAndDelegate()
+        
+        ViewDismiss()
+    }
+    
+    func updateDataSourceAndDelegate(){
+        fetchActivities()
+        collectionViewDataSource?.activities = activities ?? []
+        collectionView?.reloadData()
+    }
+    
+    func fetchActivities(){
+        do{
+            self.activities = try vc.context.fetch(Activity.fetchRequest())
+        }catch{
+            print("Error while fetching data")
+        }
     }
 }
 

@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     // MARK: variables
     
     var collectionViewDelegate: CollectionViewDelegate = CollectionViewDelegate()
-    var collectionViewDataSource: UICollectionViewDataSource?
+    var collectionViewDataSource: ActivityCollectionDataSource?
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -56,6 +56,10 @@ class ViewController: UIViewController {
         collectionView.dataSource = collectionViewDataSource
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        fetchActivities()
+    }
+    
     // MARK: - Setup
     
     func setNavigationBar(){
@@ -84,6 +88,9 @@ class ViewController: UIViewController {
     
     @objc private func addButtonTapped(){
         let vc = AddSheetView()
+        vc.collectionViewDataSource = collectionViewDataSource
+        vc.activities = self.activities
+        vc.collectionView = self.collectionView
         let sheetViewController = UINavigationController(rootViewController: vc)
         
         present(sheetViewController, animated: true, completion: nil)
@@ -92,10 +99,6 @@ class ViewController: UIViewController {
     func fetchActivities(){
         do{
             self.activities = try context.fetch(Activity.fetchRequest())
-            
-            DispatchQueue.main.async{
-                self.collectionView.reloadData()
-            }
         }catch{
             print("Error while fetching data")
         }
