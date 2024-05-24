@@ -259,11 +259,11 @@ class AddSheetView: UIViewController {
         
         newActivity.name = nameField.text
         newActivity.desc = descField.text
-        newActivity.createdAt = "23/05/2023"
+        newActivity.createdAt = localizeDate(someDate: Date.now)
         //falta pegar o dia do createdAt
         //newActivity.endsAt = datePicker.date
         newActivity.type = "show"
-        newActivity.endsAt = "23/05/2023"
+        newActivity.endsAt = localizeDate(someDate: datePicker.date)
         
         do{
             try context.save()
@@ -292,6 +292,15 @@ class AddSheetView: UIViewController {
         }catch{
             print("Error while fetching data")
         }
+    }
+    
+    func localizeDate(someDate: Date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "pt_BR")
+        dateFormatter.dateFormat = "d MMMM, yyyy"
+        
+        let brDate = dateFormatter.string(from: someDate)
+        return brDate
     }
 }
 
