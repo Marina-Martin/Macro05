@@ -65,15 +65,16 @@ class ViewController: UIViewController {
     func setNavigationBar(){
         navigationItem.title = "Suas Atividades"
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "AppWhite") ?? .white, NSAttributedString.Key.font: UIFont(name: "RadioCanada-Regular_bold", size: 32)!]
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "AppWhite") ?? .white, NSAttributedString.Key.font: UIFont(name: "RadioCanada-Regular_bold", size: 32)!]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "AppWhite") ?? .white, NSAttributedString.Key.font: UIFont(name: "RadioCanada-Regular_bold", size: 25)!]
         
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(image: (UIImage(systemName: "plus.circle.fill")), style: .plain, target: self, action: #selector(addButtonTapped)),
-            UIBarButtonItem(image: (UIImage(systemName: "line.3.horizontal.decrease.circle")), style: .plain, target: nil, action: nil),
+//            UIBarButtonItem(image: (UIImage(systemName: "line.3.horizontal.decrease.circle")), style: .plain, target: nil, action: nil),
         ]
         
+        navigationController?.navigationBar.barTintColor = .black
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .always
+        //navigationItem.largeTitleDisplayMode = .always
     }
     
     func setConstraints(){
@@ -82,9 +83,11 @@ class ViewController: UIViewController {
             collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20),
             collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
             collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
-            collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
+    
+    // MARK: Func
     
     @objc private func addButtonTapped(){
         let vc = AddSheetView()
