@@ -13,19 +13,9 @@ class ActivityButtonView: UIButton {
     
     var type: ActivityType = .show
     var isPressed: Bool = false
+    var action: (() -> Void)?
     
     // MARK: components
-    
-    let background: UIButton = {
-        let button = UIButton()
-        
-        button.backgroundColor = .black
-        button.layer.cornerRadius = 20
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        return button
-    }()
     
     let symbolImage: UIImageView = {
         var config = UIImage.SymbolConfiguration(hierarchicalColor: UIColor(named: "ShowDark") ?? .black)
@@ -55,20 +45,15 @@ class ActivityButtonView: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        
-        //configData()
     }
     
     init(type: ActivityType) {
         super.init(frame: .zero)
-        self.translatesAutoresizingMaskIntoConstraints = false
+        
         self.type = type
-        
-        self.addTarget(self, action: #selector(ChangeColor), for: .touchUpInside)
-        self.isUserInteractionEnabled = true
-        
         self.nameLabel.text = getName(activity: type)
-        self.background.backgroundColor = UIColor(named: isPressed ? getDarkColor(activity: type) : getLightColor(activity: type))
+        
+        setButton()
         
         symbolSetup(type: type)
         
@@ -77,6 +62,22 @@ class ActivityButtonView: UIButton {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setButton(){
+        self.backgroundColor = UIColor(named: isPressed ? getDarkColor(activity: type) : getLightColor(activity: type))
+        self.layer.cornerRadius = 15
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.isUserInteractionEnabled = true
+        
+        self.addTarget(self, action: #selector(onTap), for: .touchUpInside)
+    }
+    
+    @objc
+    func onTap() {
+        changeColor()
+        action?()
     }
     
     func symbolSetup(type: ActivityType){
@@ -89,29 +90,37 @@ class ActivityButtonView: UIButton {
     //MARK: Constraints
     
     func setConstraints(){
-        self.addSubview(background)
         NSLayoutConstraint.activate([
-            background.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-            background.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-            background.heightAnchor.constraint(equalToConstant: 44)
+            self.heightAnchor.constraint(equalToConstant: 40)
         ])
         
-        background.addSubview(symbolImage)
+        self.addSubview(symbolImage)
         NSLayoutConstraint.activate([
-            symbolImage.centerYAnchor.constraint(equalTo: background.centerYAnchor),
-            symbolImage.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 5)
+            symbolImage.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            symbolImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5)
         ])
         
-        background.addSubview(nameLabel)
+        self.addSubview(nameLabel)
         NSLayoutConstraint.activate([
-            nameLabel.centerYAnchor.constraint(equalTo: background.centerYAnchor),
+            nameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: symbolImage.trailingAnchor, constant: 6),
-            nameLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -5),
+            nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
         ])
     }
     
-    @objc public func ChangeColor(){
+    @objc private func changeColor(){
         print("mudei")
         isPressed.toggle()
+        self.backgroundColor = UIColor(named: isPressed ? getDarkColor(activity: type) : getLightColor(activity: type))
+        symbolSetup(type: self.type)
+    }
+    
+    public func checkColor(currentType: ActivityType){
+        self.backgroundColor = UIColor(named: currentType == self.type ? getDarkColor(activity: type) : getLightColor(activity: type))
+        
+        var config = UIImage.SymbolConfiguration(hierarchicalColor: UIColor(named: currentType == self.type ? getLightColor(activity: type) : getDarkColor(activity: type)) ?? .black)
+        config = config.applying(UIImage.SymbolConfiguration(font: .systemFont(ofSize: 25)))
+        let symbol = UIImage(systemName: getSymbol(activity: type), withConfiguration: config)
+        self.symbolImage.image = symbol
     }
 }
