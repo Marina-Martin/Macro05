@@ -17,6 +17,7 @@ class AddSheetView: UIViewController {
     var collectionViewDataSource: ActivityCollectionDataSource?
     var activities: [Activity]?
     var collectionView: UICollectionView?
+    var currentType: ActivityType = .empty
     
     // MARK: Components
     
@@ -56,7 +57,14 @@ class AddSheetView: UIViewController {
         return label
     }()
     
-    let activityStack = ActivitiesView()
+    let galeryButton = ActivityButtonView(type: .galery)
+    let showButton = ActivityButtonView(type: .show)
+    let playButton = ActivityButtonView(type: .play)
+    let cafeButton = ActivityButtonView(type: .cafe)
+    let cinemaButton = ActivityButtonView(type: .cinema)
+    let restaurantButton = ActivityButtonView(type: .restaurant)
+    let parkButton = ActivityButtonView(type: .park)
+    let othersButton = ActivityButtonView(type: .others)
     
     let descLabel: UILabel = {
         let label = UILabel()
@@ -152,7 +160,56 @@ class AddSheetView: UIViewController {
         
         setNavigationBar()
         
+        updateButtons()
+        
         setConstraints()
+    }
+    
+    //eu odeio essa função com todas as minhas forças
+    func updateButtons(){
+        galeryButton.action = {
+            self.currentType = .galery
+            self.setColors()
+        }
+        othersButton.action = {
+            self.currentType = .others
+            self.setColors()
+        }
+        showButton.action = {
+            self.currentType = .show
+            self.setColors()
+        }
+        parkButton.action = {
+            self.currentType = .park
+            self.setColors()
+        }
+        cafeButton.action = {
+            self.currentType = .cafe
+            self.setColors()
+        }
+        playButton.action = {
+            self.currentType = .play
+            self.setColors()
+        }
+        cinemaButton.action = {
+            self.currentType = .cinema
+            self.setColors()
+        }
+        restaurantButton.action = {
+            self.currentType = .restaurant
+            self.setColors()
+        }
+    }
+    
+    func setColors(){
+        self.othersButton.checkColor(currentType: self.currentType)
+        self.showButton.checkColor(currentType: self.currentType)
+        self.parkButton.checkColor(currentType: self.currentType)
+        self.cafeButton.checkColor(currentType: self.currentType)
+        self.playButton.checkColor(currentType: self.currentType)
+        self.cinemaButton.checkColor(currentType: self.currentType)
+        self.restaurantButton.checkColor(currentType: self.currentType)
+        self.galeryButton.checkColor(currentType: self.currentType)
     }
     
     // MARK: Setup
@@ -190,16 +247,11 @@ class AddSheetView: UIViewController {
             typeLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 22)
         ])
         
-        view.addSubview(activityStack)
-        NSLayoutConstraint.activate([
-            activityStack.topAnchor.constraint(equalTo: typeLabel.bottomAnchor, constant: 12),
-            activityStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 22),
-            activityStack.bottomAnchor.constraint(equalTo: activityStack.topAnchor, constant: 152)
-        ])
+        setActivityStack()
         
         view.addSubview(descLabel)
         NSLayoutConstraint.activate([
-            descLabel.topAnchor.constraint(equalTo: activityStack.bottomAnchor, constant: 35),
+            descLabel.topAnchor.constraint(equalTo: othersButton.bottomAnchor, constant: 35),
             descLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 22)
         ])
         
@@ -259,11 +311,10 @@ class AddSheetView: UIViewController {
         
         newActivity.name = nameField.text
         newActivity.desc = descField.text
-        newActivity.createdAt = "23/05/2023"
-        //falta pegar o dia do createdAt
-        //newActivity.endsAt = datePicker.date
-        newActivity.type = "show"
-        newActivity.endsAt = "23/05/2023"
+        newActivity.createdAt = dateFormater(someDate: Date.now)
+        newActivity.type = getName(activity: currentType)
+        print("\(getName(activity: currentType))")
+        newActivity.endsAt = dateFormater(someDate: datePicker.date)
         
         do{
             try context.save()
@@ -292,6 +343,15 @@ class AddSheetView: UIViewController {
         }catch{
             print("Error while fetching data")
         }
+    }
+    
+    func dateFormater(someDate: Date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "pt_BR")
+        dateFormatter.dateFormat = "d/MM/yyyy"
+        
+        let brDate = dateFormatter.string(from: someDate)
+        return brDate
     }
 }
 

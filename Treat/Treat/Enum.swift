@@ -16,23 +16,24 @@ public enum ActivityType{
     case restaurant
     case park
     case others
+    case empty
 }
 
 func getType (activity: String) -> ActivityType {
     switch activity{
-    case "show":
+    case "Show":
         return .show
-    case "cafe":
+    case "Café":
         return .cafe
-    case "galery":
+    case "Exposição":
         return .galery
-    case "play":
+    case "Peça":
         return .play
-    case "cinema":
+    case "Cinema":
         return .cinema
-    case "restaurant":
+    case "Restaurante":
         return .restaurant
-    case "park":
+    case "Parque":
         return .park
     default:
         return .others
@@ -57,6 +58,8 @@ func getName (activity: ActivityType) -> String {
         return "Parque"
     case .others:
         return "Outros"
+    case .empty:
+        return "Outros"
     }
 }
 
@@ -78,6 +81,8 @@ func getDarkColor (activity: ActivityType) -> String {
         return "ParkDark"
     case .others:
         return "OthersDark"
+    case .empty:
+        return "Outros"
     }
 }
 
@@ -99,6 +104,8 @@ func getLightColor (activity: ActivityType) -> String {
         return "ParkLight"
     case .others:
         return "OthersLight"
+    case .empty:
+        return "Outros"
     }
 }
 
@@ -118,7 +125,7 @@ func getSymbol (activity: ActivityType) -> String {
         return "fork.knife"
     case .park:
         return "camera.macro"
-    case .others:
+    default:
         return "ellipsis.rectangle"
     }
 }
