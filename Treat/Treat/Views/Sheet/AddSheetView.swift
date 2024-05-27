@@ -21,17 +21,7 @@ class AddSheetView: UIViewController {
     
     // MARK: Components
     
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        
-        label.text = "Nome da atividade"
-        label.textColor = UIColor(named: "AppWhite")
-        label.font = UIFont(name: "RadioCanada-Regular_bold", size: 20)
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
+    let nameLabel = TextLabel(text: "Nome da atividade")
     
     let nameField: UITextField = {
         let field = UITextField()
@@ -45,17 +35,7 @@ class AddSheetView: UIViewController {
         return field
     }()
     
-    let typeLabel: UILabel = {
-        let label = UILabel()
-        
-        label.text = "Tipo da atividade"
-        label.textColor = UIColor(named: "AppWhite")
-        label.font = UIFont(name: "RadioCanada-Regular_bold", size: 20)
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
+    let typeLabel = TextLabel(text: "Tipo da atividade")
     
     let galeryButton = ActivityButtonView(type: .galery)
     let showButton = ActivityButtonView(type: .show)
@@ -66,17 +46,7 @@ class AddSheetView: UIViewController {
     let parkButton = ActivityButtonView(type: .park)
     let othersButton = ActivityButtonView(type: .others)
     
-    let descLabel: UILabel = {
-        let label = UILabel()
-        
-        label.text = "Descrição da atividade"
-        label.textColor = UIColor(named: "AppWhite")
-        label.font = UIFont(name: "RadioCanada-Regular_bold", size: 20)
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
+    let descLabel = TextLabel(text: "Descrição da atividade")
     
     let background: UIView = {
         let background = UIView()
@@ -129,17 +99,7 @@ class AddSheetView: UIViewController {
         return field
     }()
     
-    let dateLabel: UILabel = {
-        let label = UILabel()
-        
-        label.text = "Dia limite"
-        label.textColor = UIColor(named: "AppWhite")
-        label.font = UIFont(name: "RadioCanada-Regular_bold", size: 20)
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
+    let dateLabel = TextLabel(text: "Dia limite")
     
     let datePicker: UIDatePicker = {
         let picker = UIDatePicker()

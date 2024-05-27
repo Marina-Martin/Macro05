@@ -83,6 +83,8 @@ class CollectionViewCell: UICollectionViewCell {
         self.dateLabel.text = date
         self.background.backgroundColor = UIColor(named: getLightColor(activity: type))
         
+        //let size: CGFloat = getSize(activity: type)
+        
         symbolSetup(type: type)
                 
         setConstraints()
@@ -108,9 +110,10 @@ class CollectionViewCell: UICollectionViewCell {
 
         background.addSubview(symbolImage)
         NSLayoutConstraint.activate([
-            symbolImage.topAnchor.constraint(equalTo: background.topAnchor, constant: 23),
+            symbolImage.centerYAnchor.constraint(equalTo: background.centerYAnchor),
             symbolImage.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 7),
-            symbolImage.trailingAnchor.constraint(equalTo: symbolImage.leadingAnchor, constant: 90)
+            symbolImage.heightAnchor.constraint(lessThanOrEqualToConstant: 85),
+            symbolImage.widthAnchor.constraint(lessThanOrEqualToConstant: 90)
         ])
     
         background.addSubview(activityLabel)
