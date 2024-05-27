@@ -23,11 +23,22 @@ class AddSheetView: UIViewController {
     
     let nameLabel = TextLabel(text: "Nome da atividade")
     
+    let fieldBackground: UIView = {
+        let background = UIView()
+        
+        background.backgroundColor = UIColor(named: "AppGray")
+        background.layer.cornerRadius = 20
+        
+        background.translatesAutoresizingMaskIntoConstraints = false
+        
+        return background
+    }()
+    
     let nameField: UITextField = {
         let field = UITextField()
         
-        field.backgroundColor = UIColor(named: "AppGray")
-        field.layer.cornerRadius = 20
+//        field.backgroundColor = UIColor(named: "AppGray")
+//        field.layer.cornerRadius = 20
         field.textColor = UIColor.black
         
         field.translatesAutoresizingMaskIntoConstraints = false
@@ -47,6 +58,8 @@ class AddSheetView: UIViewController {
     let othersButton = ActivityButtonView(type: .others)
     
     let descLabel = TextLabel(text: "Descrição da atividade")
+    
+    //let background = TextFieldBackgroundView()
     
     let background: UIView = {
         let background = UIView()
@@ -193,17 +206,24 @@ class AddSheetView: UIViewController {
             nameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 22)
         ])
         
-        view.addSubview(nameField)
+        view.addSubview(fieldBackground)
         NSLayoutConstraint.activate([
-            nameField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
-            nameField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-            nameField.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
-            nameField.bottomAnchor.constraint(equalTo: nameField.topAnchor, constant: 44)
+            fieldBackground.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
+            fieldBackground.bottomAnchor.constraint(equalTo: fieldBackground.topAnchor, constant: 44),
+            fieldBackground.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 17),
+            fieldBackground.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -17)
+        ])
+        
+        fieldBackground.addSubview(nameField)
+        NSLayoutConstraint.activate([
+            nameField.centerYAnchor.constraint(equalTo: fieldBackground.centerYAnchor),
+            nameField.leadingAnchor.constraint(equalTo: fieldBackground.leadingAnchor, constant: 20),
+            nameField.trailingAnchor.constraint(equalTo: fieldBackground.trailingAnchor, constant: -20),
         ])
         
         view.addSubview(typeLabel)
         NSLayoutConstraint.activate([
-            typeLabel.topAnchor.constraint(equalTo: nameField.bottomAnchor, constant: 35),
+            typeLabel.topAnchor.constraint(equalTo: fieldBackground.bottomAnchor, constant: 35),
             typeLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 22)
         ])
         
