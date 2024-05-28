@@ -10,7 +10,6 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
     
     // MARK: Variables
-    
     static let identifier = "ActivityCell"
     
     // MARK: Components
@@ -73,6 +72,7 @@ class CollectionViewCell: UICollectionViewCell {
         
         let image = UIImageView(image: symbol)
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
         
         return image
     }()
@@ -82,9 +82,7 @@ class CollectionViewCell: UICollectionViewCell {
         self.descriptionLabel.text = description
         self.dateLabel.text = date
         self.background.backgroundColor = UIColor(named: getLightColor(activity: type))
-        
-        //let size: CGFloat = getSize(activity: type)
-        
+                
         symbolSetup(type: type)
                 
         setConstraints()
