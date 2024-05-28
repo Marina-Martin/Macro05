@@ -129,3 +129,12 @@ func getSymbol (activity: ActivityType) -> String {
         return "ellipsis.rectangle"
     }
 }
+
+func getSize (activity: ActivityType) -> CGFloat {
+    switch activity{
+    case .play:
+        return 115
+    default:
+        return 90
+    }
+}
