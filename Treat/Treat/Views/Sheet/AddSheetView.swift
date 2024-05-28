@@ -19,6 +19,8 @@ class AddSheetView: UIViewController {
     var collectionView: UICollectionView?
     var currentType: ActivityType = .empty
     
+    var textFieldDelegate = TextFieldDelegate()
+    
     // MARK: Components
     
     let nameLabel = TextLabel(text: "Nome da atividade")
@@ -37,8 +39,6 @@ class AddSheetView: UIViewController {
     let nameField: UITextField = {
         let field = UITextField()
         
-//        field.backgroundColor = UIColor(named: "AppGray")
-//        field.layer.cornerRadius = 20
         field.textColor = UIColor.black
         
         field.translatesAutoresizingMaskIntoConstraints = false
@@ -136,6 +136,10 @@ class AddSheetView: UIViewController {
         updateButtons()
         
         setConstraints()
+        
+        nameField.delegate = textFieldDelegate
+        linkField.delegate = textFieldDelegate
+        descField.delegate = textFieldDelegate
     }
     
     //eu odeio essa função com todas as minhas forças

@@ -13,6 +13,7 @@
 		9F1DB6632BF3DD7C002F5679 /* RadioCanada-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DB6612BF3DD7C002F5679 /* RadioCanada-Italic.ttf */; };
 		9F4469BA2BFD2A73008981D0 /* ActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4469B92BFD2A73008981D0 /* ActivitiesView.swift */; };
 		9F81AB342BFFB82900220BB6 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9F81AB322BFFB82900220BB6 /* DataModel.xcdatamodeld */; };
+		9F8D25022C06198A0081DE2E /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8D25012C06198A0081DE2E /* TextFieldDelegate.swift */; };
 		9FACAAD72BF2B41800BEDEC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FACAAD62BF2B41800BEDEC0 /* AppDelegate.swift */; };
 		9FACAAD92BF2B41800BEDEC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FACAAD82BF2B41800BEDEC0 /* SceneDelegate.swift */; };
 		9FACAADB2BF2B41800BEDEC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FACAADA2BF2B41800BEDEC0 /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 		9F1DB6612BF3DD7C002F5679 /* RadioCanada-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RadioCanada-Italic.ttf"; sourceTree = "<group>"; };
 		9F4469B92BFD2A73008981D0 /* ActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesView.swift; sourceTree = "<group>"; };
 		9F81AB332BFFB82900220BB6 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		9F8D25012C06198A0081DE2E /* TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
 		9FACAAD32BF2B41800BEDEC0 /* Treat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Treat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FACAAD62BF2B41800BEDEC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FACAAD82BF2B41800BEDEC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				9FACAAD82BF2B41800BEDEC0 /* SceneDelegate.swift */,
 				9FACAAD62BF2B41800BEDEC0 /* AppDelegate.swift */,
 				9FC379442BF67A3F000DECD3 /* CollectionViewDelegate.swift */,
+				9F8D25012C06198A0081DE2E /* TextFieldDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F8D25022C06198A0081DE2E /* TextFieldDelegate.swift in Sources */,
 				9FC379472BF67E13000DECD3 /* CollectionViewCell.swift in Sources */,
 				9FACAADB2BF2B41800BEDEC0 /* ViewController.swift in Sources */,
 				9FC3794E2BF6A76F000DECD3 /* Enum.swift in Sources */,
