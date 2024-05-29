@@ -140,6 +140,8 @@ class AddSheetView: UIViewController {
         nameField.delegate = textFieldDelegate
         linkField.delegate = textFieldDelegate
         descField.delegate = textFieldDelegate
+        
+        setupKeyboardHiding()
     }
     
     //eu odeio essa função com todas as minhas forças
@@ -252,7 +254,7 @@ class AddSheetView: UIViewController {
             linkField.topAnchor.constraint(equalTo: background.topAnchor, constant: 15),
             linkField.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 10),
             linkField.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: 10),
-            nameField.bottomAnchor.constraint(equalTo: nameField.topAnchor, constant: 44)
+            //nameField.bottomAnchor.constraint(equalTo: nameField.topAnchor, constant: 100)
         ])
         
         background.addSubview(dividerView)
@@ -288,6 +290,8 @@ class AddSheetView: UIViewController {
     @objc func ViewDismiss(){
         navigationController?.dismiss(animated: true)
     }
+    
+    //MARK: Func CoreData
     
     @objc func CreateActivity(){
         let context = vc.context
@@ -336,6 +340,49 @@ class AddSheetView: UIViewController {
         
         let brDate = dateFormatter.string(from: someDate)
         return brDate
+    }
+    
+    //MARK: keyboard logic
+    
+    private func setupKeyboardHiding() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(sender: NSNotification) {
+        guard let userInfo = sender.userInfo, let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue, let currentTextField = UIResponder.currentFirst() as? UITextField else{
+            return }
+        
+        let keyboardTopY = keyboardFrame.cgRectValue.origin.y
+        let convertedTextFieldFrame = view.convert(currentTextField.frame, from: currentTextField.superview)
+        let textFieldBottomY = convertedTextFieldFrame.origin.y + convertedTextFieldFrame.size.height + 30
+        
+        if(textFieldBottomY > keyboardTopY){
+            let textBoxY = convertedTextFieldFrame.origin.y
+            let newFrameY = (textBoxY - keyboardTopY / 2) * -1
+            view.frame.origin.y = newFrameY
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        view.frame.origin.y = 0
+    }
+}
+
+extension UIResponder {
+
+    private struct Static {
+        static weak var responder: UIResponder?
+    }
+
+    static func currentFirst() -> UIResponder? {
+        Static.responder = nil
+        UIApplication.shared.sendAction(#selector(UIResponder._trap), to: nil, from: nil, for: nil)
+        return Static.responder
+    }
+
+    @objc private func _trap() {
+        Static.responder = self
     }
 }
 
